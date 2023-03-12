@@ -1,7 +1,6 @@
 # software-studio
-<hr>
-1: HTML
-2: CSS
-3: BOOTSTRAPS
-4: JAVASCRIPTS
-5: REACT
+1: HTML <br>
+2: CSS <br>
+3: BOOTSTRAPS <br>
+4: JAVASCRIPTS <br>
+5: REACT <br>
