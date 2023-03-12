@@ -1,0 +1,40 @@
+.Button {
+    height: 100px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button.operate-button {
+    background-color: rgb(236, 236, 236);
+    border: 2px solid rgb(87, 87, 87);
+    border-radius: 2%;
+    height: 30px;
+}
+
+button.operate-button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    background-color: rgb(225, 225, 225);
+    color: rgb(0, 0, 0);
+    border: 2px solid rgb(0, 0, 0);
+}
+
+div.value {
+    
+    height: 50px;
+    width: 80px;
+    background-color: rgb(50, 250, 0);
+    border: 3px solid rgb(36, 36, 36);
+    border-radius: 2%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: purple;
+    font-weight:900;
+    font-size: 30px;
+    margin:  10px;
+    border-radius: 10%;
+}
