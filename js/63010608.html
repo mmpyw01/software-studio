@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <div id="maincontainer"></div>
+        <script>
+
+            var main = document.getElementById("maincontainer");
+            
+            //header1
+            var h2 = document.createElement("h2");
+            h2.innerText = "Exercise 04: JavaScript&Dom";
+            main.appendChild(h2);
+            
+            //button
+            var button = document.createElement("button");
+            button.innerText = "Click me to display Date and Time";
+            main.appendChild(button);
+
+            var work = false
+            var worker = new Worker("code.js");
+            function startwork(){
+                worker.postMessage("start")
+                worker.onmessage = function(e){
+                    button.innerHTML = e.data.date
+                    button.style.backgroundColor = e.data.bgColor
+                    button.style.position = "fixed"
+                    button.style.top = 0 
+                    button.style.right = 0 
+                    div1.style.marginTop = "60px"
+                }
+                work = true 
+            }
+            function stopwork(){
+                worker.postMessage("stop")
+                button.style.position = null
+                div1.style.marginTop = "20px"
+                work = false 
+            }
+            button.addEventListener("click",function(){
+                if(work){
+                    stopwork();
+                }
+                else{
+                    startwork();
+                }
+            })
+
+            //Personal Info
+            var div1 = document.createElement('div');
+            div1.style.marginTop = "20px";
+            
+            var perHeader = document.createElement('u');
+            perHeader.innerText="Personal Info";
+            perHeader.style.color = "pink"
+            perHeader.style.width = "fit-content"
+            perHeader.style.cursor = "pointer"
+            div1.appendChild(perHeader);
+            
+            perHeader.addEventListener("mouseover",function(){
+                perHeader.style.color = "blue" 
+                perHeader.style.backgroundColor = "yellow"
+            })
+            perHeader.addEventListener("mouseout",function(){
+                perHeader.style.color = "pink" 
+                perHeader.style.backgroundColor = "transparent"
+            })
+
+            //Personal details
+            var ulPer = document.createElement("ul");
+            var li1 = document.createElement("li");
+            li1.innerText = "Piyawan Norpalm, ID: 63010608";
+            ulPer.appendChild(li1);
+            var li2 = document.createElement("li");
+            li2.innerText = "Subject: Software Studio";
+            ulPer.appendChild(li2);
+            var li3 = document.createElement("li");
+            li3.innerText = " Semester: 2/2565";
+            ulPer.appendChild(li3);
+            ulPer.style.display = "none";
+            div1.appendChild(ulPer);
+            main.appendChild(div1);
+
+            perHeader.addEventListener("click",function(){
+                if (ulPer.style.display === "none"){
+                    ulPer.style.display = "block"
+                }
+                else{
+                    ulPer.style.display = "none"
+                }
+            })
+
+            //Snapshots
+            var div2 = document.createElement('div');
+            div2.style.marginTop = "20px";
+            var snapHeader = document.createElement("h1");
+            snapHeader.innerText="Snapshots";
+            div2.appendChild(snapHeader);
+
+            //Snapshots Details
+            var ulSnap = document.createElement("ul");
+            var li1 = document.createElement("li");
+            li1.innerText = "My boyfriend";
+            li1.style.color = "blue";
+            li1.style.textDecoration = "underline";
+            li1.style.width = "fit-content";
+            li1.style.cursor = "pointer";
+            ulSnap.appendChild(li1);
+            var li2 = document.createElement("li");
+            li2.innerText = "My ex";
+            li2.style.color = "blue";
+            li2.style.textDecoration = "underline";
+            li2.style.width = "fit-content";
+            li2.style.cursor = "pointer";
+            ulSnap.appendChild(li2);
+            var li3 = document.createElement("li");
+            li3.innerText = "My crush";
+            li3.style.color = "blue";
+            li3.style.textDecoration = "underline";
+            li3.style.width = "fit-content";
+            li3.style.cursor = "pointer";
+            ulSnap.appendChild(li3);
+            var li4 = document.createElement("li");
+            li4.innerText = "My sugardaddy";
+            li4.style.color = "blue";
+            li4.style.textDecoration = "underline";
+            li4.style.width = "fit-content";
+            li4.style.cursor = "pointer";
+            ulSnap.appendChild(li4);
+            div2.appendChild(ulSnap);
+            
+            var img =document.createElement("img");
+            img.src = "https://i.pinimg.com/564x/8f/2c/68/8f2c68a93880a86d4df674daecc52a34.jpg";
+            img.style.width = "600px";
+            div2.appendChild(img);
+
+            main.appendChild(div2);
+            
+            li1.addEventListener("click",function(){
+                img.src = "https://i.pinimg.com/564x/31/a4/35/31a435df6bf2fd85ac040bde3a9312f1.jpg";
+                img.style.width = "300px";
+            })
+
+            li2.addEventListener("click",function(){
+                img.src = "https://i.pinimg.com/564x/91/e8/62/91e86298b7a48d14fe917941f5341807.jpg";
+                img.style.width = "300px";
+            })
+
+            li3.addEventListener("click",function(){
+                img.src = "https://i.pinimg.com/564x/90/35/5a/90355ad8739714b4caa41bfebb5c5339.jpg";
+                img.style.width = "300px";
+            })
+
+            li4.addEventListener("click",function(){
+                img.src = "https://i.pinimg.com/564x/5d/ae/98/5dae9800aa18a8c1c02769e8535ed281.jpg";
+                img.style.width = "300px";
+            })
+
+        </script>
+    </body>
+</html>
